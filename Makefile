@@ -29,7 +29,8 @@ SCRIPTS = \
 	presentation.R \
 	bases.R \
 	donnees.R \
-	application.R
+	application.R \
+	controle.R
 OTHER = LICENSE
 
 ## Numéro de version et numéro ISBN extraits du fichier maître
