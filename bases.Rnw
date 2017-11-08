@@ -1,0 +1,232 @@
+\section{Bases du langage R}
+
+\begin{frame}[fragile=singleslide]
+  \frametitle{Données et opérateurs de base}
+
+  La programmation, c'est la manipulation de \alert{données} à l'aide
+  de \alert{procédures}.
+
+  \begin{itemize}
+  \item Types de données de base
+    \begin{itemize}
+    \item nombres: \verb|0 1 2 3 4 5 6 7 8 9|
+    \item valeurs booléennes: \verb|TRUE|, \verb|FALSE|
+    \item donnée manquante: \verb|NA|
+    \item valeurs infinies et indéterminée: \verb|Inf|, \verb|-Inf|, \verb|NaN|
+    \item valeur «néant»: \verb|NULL|
+    \item nombres complexes: \verb|1 + 2i|
+    \item chaines de caractères: \verb|"a"|, \verb|"abc"|
+    \end{itemize}
+  \item Procédures de base
+    \begin{itemize}
+    \item arithmétique: \verb| +  -  *  /  ^  <  >=  ==|, etc.
+    \item logique: \verb= &  |  !=
+    \item affectation: \verb| <-|
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Vecteurs}
+
+  Dans R \alert{tout} est un vecteur. Tout vecteur a un \alert{mode}
+  et une \alert{longueur}.
+
+  \begin{itemize}
+  \item Vecteur simple: tous les éléments du même \alert{mode}
+  \item Fonctions de base pour créer des vecteurs simples
+    \begin{itemize}
+    \item \texttt{c} (concaténation);
+    \item \texttt{numeric} (vecteur numérique)
+    \item \texttt{logical} (vecteur booléen)
+    \item \texttt{character} (vecteur de chaines de caractères)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+  \frametitle{Arithmétique vectorielle}
+
+  Une des grandes forces du langage R.
+
+  \begin{enumerate}
+  \item Opérations \alert{élément par élément}
+<<echo=TRUE>>=
+c(1, 2, 8) + c(5, 9, 0)
+@
+  \item \alert{Recyclage} des vecteurs les plus courts
+<<echo=TRUE>>=
+2 + c(1, 4, 5) + 1:9
+@
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+  \frametitle{Conversion forcée}
+
+  Lorsque tous les objets ne sont pas du même mode\dots\ et qu'ils
+  devraient l'être.
+  \begin{itemize}
+  \item Conversion forcée survient automatiquement
+  \item Vers le mode qui conserve le plus d'information
+<<echo=TRUE>>=
+c(5, TRUE, FALSE)
+c(5, TRUE, "cinq")
+5 + TRUE
+sum(c(TRUE, TRUE, FALSE, FALSE, TRUE))
+c(5, 0) & TRUE
+@
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+  \frametitle{Indiçage}
+
+  \begin{itemize}
+  \item Entiers positifs
+<<echo=TRUE>>=
+v <- 101:110
+v[c(2, 4, 10)]
+@
+  \item Entiers négatifs
+<<echo=TRUE>>=
+v[c(-2, -4, -10)]
+@
+  \item Vecteur booléen (de même longueur)
+<<echo=TRUE>>=
+v[v > 105]
+@
+  \item Chaînes de caractères (par nom)
+  \item Indice vide
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fonctions}
+
+  On adopte dans R le paradigme de programmation \alert{fonctionnelle}.
+
+  \begin{itemize}
+  \item Programme $=$ suite d'appels de fonctions
+  \item Fonction est un \alert{objet} comme un autre
+    \begin{itemize}
+    \item contenu (code source) accessible
+    \item possible d'avoir fonction comme argument d'une fonction
+    \item possible qu'une fonction retourne une fonction
+    \item possible de définir de nouvelles fonctions
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Définition d'une fonction}
+
+  Cas simple comptant une seule expression.
+  \begin{onlyenv}<1>
+\begin{Schunk}
+\begin{Verbatim}
+f <- function(x, y = 0) x + 2 * y
+\end{Verbatim}
+\end{Schunk}
+  \end{onlyenv}
+  \begin{onlyenv}<2->
+\begin{Schunk}
+\begin{Verbatim}
+f    <-    function   (x,          y = 0)       x + 2 * y
+\end{Verbatim}
+\end{Schunk}
+  \end{onlyenv}
+
+  \visible<3->{
+  \begingroup
+  \setlength{\unitlength}{5mm}
+  \begin{picture}(25,4.5)
+    \put(0.8,1){\texttt{f}}
+    \put(2.6,1){est}
+    \put(4.5,1){une fonction}
+    \put(9,1){
+      \parbox[t]{4.2\unitlength}{%
+        \raggedright
+        qui prend en argument
+        une valeur \texttt{x}}}
+    \put(14,1){
+      \parbox[t]{4.2\unitlength}{%
+        \raggedright
+        et une valeur \texttt{y} (zéro par défaut)}}
+    \put(19,1){%
+      \parbox[t]{5\unitlength}{
+        \raggedright
+        puis retourne le résultat de \\  \texttt{x + 2 * y}.}}
+
+    \put(1,4.5){\vector(0,-1){2.25}}
+    \put(3,4.5){\vector(0,-1){2.25}}
+    \put(6.4,4.5){\vector(0,-1){2.25}}
+    \put(9.7,4.5){\vector(0,-1){2.25}}
+    \put(14.7,4.5){\vector(0,-1){2.25}}
+    \put(19.7,4.5){\vector(0,-1){2.25}}
+  \end{picture}
+  \endgroup}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+  \frametitle{Corps des fonctions}
+
+  La plupart des fonctions comptent plusieurs expressions.
+
+  \begin{itemize}
+  \item Expressions regroupées dans des \verb={ }=
+  \item Fonction retourne le résultat de la \alert{dernière expression}
+\begin{Schunk}
+\begin{Verbatim}
+f <- function(x, y = 0)
+{
+    z <- 2 * y
+    x * z + z^2
+}
+\end{Verbatim}
+\end{Schunk}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Fonction anonyme}
+
+  Si une fonction n'est pas affectée à un objet, c'est une
+  \alert{fonction anonyme}.
+
+  \begin{itemize}
+  \item Inutile pour une fonction appelée depuis la ligne de commande
+  \item Utile en argument d'une autre fonction
+  \item Pour les fonctions à «jeter après usage»
+<<echo=TRUE>>=
+mixture <- function(x, p, f, g)
+    p * f(x) + (1 - p) * g(x)
+mixture(2, 0.3, function(x) x^2, function(x) 1/x)
+@
+  \end{itemize}
+
+  \pause
+  \gotoR{bases.R}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercices}
+
+  \begin{enumerate}
+  \item Écrire une expression pour éliminer les données manquantes
+    (\texttt{NA}) d'un vecteur.
+  \item Écrire une fonction \texttt{product} pour calculer le produit de
+    deux nombres dans l'échelle logarithmique à partir de la relation
+    \begin{equation*}
+      x y = e^{\log x + \log y}.
+    \end{equation*}
+    La fonction doit respecter les règles usuelles d'arithmétique
+    vectorielle de R. Utiliser les fonctions \texttt{exp} et \texttt{log}.
+  \end{enumerate}
+\end{frame}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% TeX-master: "act-passerelle-introduction-r"
+%%% End:
