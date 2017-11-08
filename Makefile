@@ -87,7 +87,7 @@ pdf: $(MASTER)
 
 tex: $(RNWFILES:.Rnw=.tex)
 
-release: zip create-release upload publish
+release: zip create-release upload
 
 %.tex: %.Rnw
 	$(SWEAVE) '$<'
