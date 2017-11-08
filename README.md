@@ -43,7 +43,4 @@ Vincent Goulet <vincent.goulet@act.ulaval.ca>
 
 ### 2017.11 (2017-11-08)
 
-- Version initiale basée sur la documentation de l'atelier
-  *Introduction à R* du
-  colloque [R à Québec 2017](http://raquebec.ulaval.ca/2017/) ainsi
-  que sur les diapositives du cours IFT-1902.
+- Version initiale basée sur la documentation de l'atelier *Introduction à R* du colloque [R à Québec 2017](http://raquebec.ulaval.ca/2017/) ainsi que sur les diapositives du cours IFT-1902.
