@@ -43,7 +43,7 @@ tapply(X, INDEX, FUN, ...)
   \texttt{by}, \texttt{aggregate}.
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}[fragile=singleslide]
   \frametitle{Fonctions \texttt{lapply} et \texttt{sapply}}
 
   \texttt{lapply} applique une fonction sur tous les éléments d'un
@@ -65,31 +65,27 @@ sapply(X, FUN, ...)
   \end{itemize}
 
   Autre fonction de la même famille: \texttt{mapply}.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Fonction \texttt{outer}}
+
+  \texttt{outer} applique une fonction (produit par défaut) à
+  \alert{toutes les combinaisons} des éléments de deux objets.
+
+  \begin{Schunk}
+\begin{lstlisting}
+outer(X, Y, FUN, ...)
+\end{lstlisting}
+  \end{Schunk}
+  \begin{itemize}
+  \item \texttt{X} et \texttt{Y} vecteurs ou matrices
+  \item \texttt{FUN} fonction à appliquer
+  \item `\texttt{...}' arguments additionnels à passer à \texttt{FUN}
+  \end{itemize}
 
   \pause
   \gotoR{application.R}
-\end{frame}
-
-\begin{frame}[fragile=singleslide]
-  \frametitle{Exercices}
-
-  \begin{enumerate}
-  \item Soit $X_{ijk}$ un tableau de données $n \times p \times r$ et
-    soit $w_{ijk}$ un tableau de poids correspondant à ces données.
-
-    Écrire une expression R pour calculer la moyenne pondérée
-    \begin{equation*}
-      X_{wjw} = \sum_{i = 1}^n \sum_{k = 1}^r
-      \frac{w_{ijk}}{w_{\pt j \pt}} X_{ijk} \qquad
-      w_{\pt j \pt} = \sum_{i = 1}^n \sum_{k = 1}^r w_{ijk}.
-    \end{equation*}
-  \item Générer la suite de nombres
-\begin{verbatim}
-0  0  1  0  1  2  ...  0  1  2  3  ...  10
-\end{verbatim}
-    (Évidemment, il faut trouver un moyen de générer les suites sans
-    simplement concaténer les différentes sous-suites.)
-  \end{enumerate}
 \end{frame}
 
 %%% Local Variables:

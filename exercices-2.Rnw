@@ -1,0 +1,56 @@
+\section{Exercices}
+
+\begin{frame}[fragile=singleslide]
+  \frametitle{Exercices}
+
+  \begin{enumerate}
+    \setcounter{enumi}{2}
+  \item Soit $X_{ijk}$ un tableau de données $n \times p \times r$ et
+    soit $w_{ijk}$ un tableau de poids correspondant à ces données.
+
+    Écrire une expression R pour calculer la moyenne pondérée
+    \begin{equation*}
+      X_{wjw} = \sum_{i = 1}^n \sum_{k = 1}^r
+      \frac{w_{ijk}}{w_{\pt j \pt}} X_{ijk} \qquad
+      w_{\pt j \pt} = \sum_{i = 1}^n \sum_{k = 1}^r w_{ijk}.
+    \end{equation*}
+  \item Générer la suite de nombres
+\begin{verbatim}
+0  0  1  0  1  2  ...  0  1  2  3  ...  10
+\end{verbatim}
+    (Évidemment, il faut trouver un moyen de générer les suites sans
+    simplement concaténer les différentes sous-suites.)
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+  \frametitle{Exercices}
+
+  \begin{enumerate}
+    \setcounter{enumi}{4}
+  \item Produire, en une seule expression et sans boucle, un tableau
+    des valeurs de
+    \begin{equation*}
+      a_\angln = \frac{1 - (1 + i)^{-n}}{i}
+    \end{equation*}
+    pour $n = 1, 2, \dots, 10$ et $i = 0,05, 0,06, \dots, 0,10$.
+  \item Les fonctions \texttt{cumsum} et \texttt{cumprod} calculent la
+    somme cumulative et le produit cumulatif d'un vecteur.
+<<echo=TRUE>>=
+x <- c(2, 2, 3, 5)
+cumsum(x)
+cumprod(x)
+@
+    Écrire une expression R pour calculer la valeur actuelle (au temps
+    0) d'une série de flux financiers $P_1, P_2, \dots, P_n$ à des taux d'intérêts effectifs
+    par période $i_1, i_2, \dots, i_n$. (Supposer que $P_j = 0$ s'il
+    n'y a pas de flux durant la période $j$.)
+  \end{enumerate}
+\end{frame}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% TeX-master: "act-passerelle-introduction-r"
+%%% End:
