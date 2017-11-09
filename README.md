@@ -41,6 +41,13 @@ Vincent Goulet <vincent.goulet@act.ulaval.ca>
 
 ## Historique des versions
 
+### 2017.11a (2017-11-08)
+
+- Traitement de la fonction `outer` dans la section sur les fonctions d'application et dans le fichier `application.R`.
+- Numérotation continue pour les exercices.
+- Deux exercices additionnels après la section sur les fonctions d'application.
+- Fichier `exercices-solutions.R` avec les solutions des exercices.
+
 ### 2017.11 (2017-11-08)
 
 - Version initiale basée sur la documentation de l'atelier *Introduction à R* du colloque [R à Québec 2017](http://raquebec.ulaval.ca/2017/) ainsi que sur les diapositives du cours IFT-1902.
