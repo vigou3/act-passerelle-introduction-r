@@ -154,3 +154,24 @@ sapply(x, fun2, y = c(3, 5, 7))
 ## Application de la fonction 'fun' sur les échantillons de la
 ## liste 'x' avec un seuil différent pour chacun.
 mapply(fun, x, c(3, 5, 7, 7))
+
+###
+### FONCTION 'outer'
+###
+
+## La fonction 'outer' applique une fonction (le produit par
+## défaut, d'où le nom de la fonction, dérivé de «produit
+## extérieur») à toutes les combinaisons des éléments de ses
+## deux premiers arguments.
+x <- c(1, 2, 4, 7, 10, 12)
+y <- c(2, 3, 6, 7, 9, 11)
+outer(x, y)                # produit extérieur
+x %o% y                    # équivalent plus court
+
+## Pour effectuer un calcul autre que le produit, on spécifie
+## la fonction à appliquer en troisième argument. Si la
+## fonction est un des opérateurs arithmétiques de base, il
+## faut placer le symbole entre guillemets " ".
+outer(x, y, "+")           # «somme extérieure»
+outer(x, y, "<=")          # toutes les comparaisons possibles
+outer(x, y, function(x, y) x + 2 * y) # fonction quelconque
