@@ -30,7 +30,8 @@ SCRIPTS = \
 	bases.R \
 	donnees.R \
 	application.R \
-	controle.R
+	controle.R \
+	exercices-solutions.R
 OTHER = LICENSE
 
 ## Numéro de version et numéro ISBN extraits du fichier maître
@@ -52,6 +53,7 @@ TEXFILES = \
 	reference.tex \
 	presentation.tex \
 	application.tex \
+	exercices-1.tex \
 	controle.tex \
 	extensions.tex \
 	colophon.tex \
